@@ -1,0 +1,20 @@
+package com.yuk.sheremisc.user.outbound
+
+import com.yuk.sheremisc.user.OAuthUserId
+import com.yuk.sheremisc.user.User
+import com.yuk.sheremisc.user.UserRepository
+import com.yuk.sheremisc.user.UserType
+import org.springframework.stereotype.Repository
+import reactor.core.publisher.Mono
+
+@Repository
+class DummyUserRepository : UserRepository {
+
+    override fun new(user: User): Mono<User> {
+        return Mono.just(User(OAuthUserId("111"), UserType.KAKAO))
+    }
+
+    override fun findByOAuthId(userId: OAuthUserId): Mono<User> {
+        return Mono.empty()
+    }
+}

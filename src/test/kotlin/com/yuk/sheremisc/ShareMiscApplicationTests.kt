@@ -9,5 +9,4 @@ class ShareMiscApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }
