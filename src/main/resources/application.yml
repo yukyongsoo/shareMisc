@@ -1,0 +1,16 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+        provider:
+          kakao:
+            issuer-uri: https://kauth.kakao.com
+      resourceserver:
+        jwt:
+          issuer-uri: https://kauth.kakao.com
+
+logging:
+  level:
+    root: info
