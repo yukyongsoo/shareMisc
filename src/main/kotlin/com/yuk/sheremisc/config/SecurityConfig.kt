@@ -1,5 +1,6 @@
 package com.yuk.sheremisc.config
 
+import com.yuk.sheremisc.user.JwtService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.Customizer
@@ -14,16 +15,22 @@ import org.springframework.security.web.server.SecurityWebFilterChain
 class SecurityConfig {
     @Bean
     fun getSecurityWebFilterChain(
-        http: ServerHttpSecurity
+        http: ServerHttpSecurity,
+        jwtService: JwtService
     ): SecurityWebFilterChain {
         return http {
-            cors { }
+            cors { Customizer.withDefaults<ServerHttpSecurity.CorsSpec>() }
             formLogin { disable() }
             csrf { disable() }
 
             oauth2Login {}
             oauth2Client { Customizer.withDefaults<OAuth2ClientSpec>() }
-            oauth2ResourceServer { jwt {} }
+            oauth2ResourceServer {
+                jwt {
+                    jwtAuthenticationConverter = jwtService
+                    jwtDecoder = jwtService
+                }
+            }
 
             authorizeExchange {
                 authorize("/user/login", permitAll)

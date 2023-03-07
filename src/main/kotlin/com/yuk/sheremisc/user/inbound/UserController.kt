@@ -19,7 +19,7 @@ class UserController(
     private val userService: UserService
 ) {
     @GetMapping("/login")
-    fun login(exchange: ServerWebExchange): Mono<TokenResponse> {
+    fun login(exchange: ServerWebExchange): Mono<String> {
         return exchange.getPrincipal<Principal>()
             .switchIfEmpty {
                 setRedirectUrl(URI.create("/login"), HttpStatus.TEMPORARY_REDIRECT, exchange.response)
@@ -34,12 +34,19 @@ class UserController(
             }
     }
 
+    @GetMapping("/me")
+    fun getMe(exchange: ServerWebExchange): Mono<UserResponse> {
+        return exchange.getPrincipal<Principal>()
+            .transform(userService::getMe)
+            .transform(UserResponseConvertor::convert)
+            .onErrorComplete()
+    }
+
     private fun setTokenToCookie(
-        token: TokenResponse,
+        token: String,
         response: ServerHttpResponse
     ) {
-        response.addCookie(ResponseCookie.from("access_token", token.accessToken).path("/").build())
-        response.addCookie(ResponseCookie.from("refresh_token", token.refreshToken).path("/").build())
+        response.addCookie(ResponseCookie.from("access_token", token).path("/").build())
     }
 
     private fun setRedirectUrl(
