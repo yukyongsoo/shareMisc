@@ -7,10 +7,14 @@ spring:
         provider:
           kakao:
             issuer-uri: https://kauth.kakao.com
-      resourceserver:
-        jwt:
-          issuer-uri: https://kauth.kakao.com
 
 logging:
   level:
     root: info
+    org:
+      springframework:
+        web:
+          reactive:
+            function:
+              client:
+                ExchangeFunctions: TRACE

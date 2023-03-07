@@ -1,9 +1,9 @@
 package com.yuk.sheremisc.user.outbound
 
-import com.yuk.sheremisc.user.OAuthUserId
-import com.yuk.sheremisc.user.User
 import com.yuk.sheremisc.user.UserRepository
-import com.yuk.sheremisc.user.UserType
+import com.yuk.sheremisc.user.domain.OAuthUserId
+import com.yuk.sheremisc.user.domain.User
+import com.yuk.sheremisc.user.domain.UserType
 import org.springframework.stereotype.Repository
 import reactor.core.publisher.Mono
 
