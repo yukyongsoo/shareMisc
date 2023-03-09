@@ -1,4 +1,4 @@
-package com.yuk.sheremisc.user
+package com.yuk.sheremisc.user.domain
 
 class User(
     val oAuthUserId: OAuthUserId,
