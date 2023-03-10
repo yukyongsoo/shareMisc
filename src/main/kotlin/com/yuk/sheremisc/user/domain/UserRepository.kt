@@ -1,7 +1,5 @@
-package com.yuk.sheremisc.user
+package com.yuk.sheremisc.user.domain
 
-import com.yuk.sheremisc.user.domain.OAuthUserId
-import com.yuk.sheremisc.user.domain.User
 import reactor.core.publisher.Mono
 
 interface UserRepository {

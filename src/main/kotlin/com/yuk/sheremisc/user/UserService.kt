@@ -2,6 +2,7 @@ package com.yuk.sheremisc.user
 
 import com.yuk.sheremisc.user.domain.OAuthUserId
 import com.yuk.sheremisc.user.domain.User
+import com.yuk.sheremisc.user.domain.UserRepository
 import com.yuk.sheremisc.user.domain.UserType
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
