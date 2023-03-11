@@ -14,7 +14,7 @@ class User(
         get() = UserId(_id)
 
     @Id
-    protected var _id = BigInteger.ZERO
+    protected lateinit var _id: BigInteger
 
     val oAuthUserId: OAuthUserId
         get() = OAuthUserId(_oAuthUserId)
