@@ -1,6 +1,7 @@
 package com.yuk.sheremisc.product
 
 import com.yuk.sheremisc.product.category.Category
+import com.yuk.sheremisc.user.domain.UserId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import java.math.BigInteger
@@ -10,7 +11,8 @@ class Product(
     val category: Category,
     val title: Title,
     val content: Content,
-    val price: Price
+    val price: Price,
+    val seller: UserId
 ) {
     @Id
     protected lateinit var _id: BigInteger
