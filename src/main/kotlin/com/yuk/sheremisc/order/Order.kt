@@ -1,6 +1,5 @@
 package com.yuk.sheremisc.order
 
-import com.yuk.sheremisc.product.Price
 import com.yuk.sheremisc.product.ProductId
 import com.yuk.sheremisc.user.domain.UserId
 import org.springframework.data.annotation.Id
@@ -12,7 +11,7 @@ class Order(
     val sellerId: UserId,
     val buyerId: UserId,
     val productId: ProductId,
-    val price: Price
+    val tradeTerms: TradeTerms
 ) {
     @Id
     protected lateinit var _id: BigInteger
