@@ -1,5 +1,6 @@
 package com.yuk.sheremisc.user.domain
 
+import com.yuk.sheremisc.account.AccountId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
@@ -8,6 +9,7 @@ import java.math.BigInteger
 @Document
 class User(
     oAuthUserId: OAuthUserId,
+    accountId: AccountId,
     val type: UserType
 ) {
     val id: UserId
@@ -21,6 +23,12 @@ class User(
 
     @Field("oAuthUserId")
     protected val _oAuthUserId: String = oAuthUserId.value
+
+    val accountId: AccountId
+        get() = AccountId(_accountId)
+
+    @Field("accountId")
+    protected val _accountId: BigInteger = accountId.value
 }
 
 @JvmInline
