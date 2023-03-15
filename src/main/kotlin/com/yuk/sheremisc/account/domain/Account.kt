@@ -1,18 +1,26 @@
-package com.yuk.sheremisc.account
+package com.yuk.sheremisc.account.domain
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
+import org.springframework.data.mongodb.core.query.not
 import java.math.BigInteger
 
 @Document
 class Account(
     virtualAccountNumber: VirtualAccountNumber
 ) {
+    constructor(
+        accountId: AccountId,
+        virtualAccountNumber: VirtualAccountNumber
+    ) : this(virtualAccountNumber) {
+        this._id = accountId.value
+    }
+
     @Id
     protected lateinit var _id: BigInteger
 
-    val id: AccountId
+    val id
         get() = AccountId(_id)
 
     @Field("balance")
@@ -24,7 +32,7 @@ class Account(
     @Field("virtualAccountNumber")
     protected var _virtualAccountNumber = virtualAccountNumber.value
 
-    val virtualAccountNumber: VirtualAccountNumber
+    val virtualAccountNumber
         get() = VirtualAccountNumber(_virtualAccountNumber)
 }
 
