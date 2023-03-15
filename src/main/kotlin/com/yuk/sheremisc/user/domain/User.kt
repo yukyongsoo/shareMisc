@@ -1,6 +1,6 @@
 package com.yuk.sheremisc.user.domain
 
-import com.yuk.sheremisc.account.AccountId
+import com.yuk.sheremisc.account.domain.AccountId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
