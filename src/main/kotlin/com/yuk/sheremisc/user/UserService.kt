@@ -33,7 +33,7 @@ class UserService(
     }
 
     private fun saveAndCreateAccount(userId: OAuthUserId): Mono<User> {
-        return Mono.fromSupplier(accountService::newAndGetId)
+        return accountService.newAndGetId()
             .flatMap { accountId ->
                 userRepository.new(User(userId, accountId, UserType.KAKAO))
             }
