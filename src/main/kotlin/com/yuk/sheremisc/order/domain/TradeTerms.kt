@@ -1,4 +1,4 @@
-package com.yuk.sheremisc.order
+package com.yuk.sheremisc.order.domain
 
 import com.yuk.sheremisc.product.domain.Price
 
