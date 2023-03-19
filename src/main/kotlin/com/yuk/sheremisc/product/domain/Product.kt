@@ -17,7 +17,7 @@ class Product(
     @Id
     protected lateinit var _id: BigInteger
 
-    val productId
+    val id
         get() = ProductId(_id)
 }
 
