@@ -1,6 +1,6 @@
 package com.yuk.sheremisc.order
 
-import com.yuk.sheremisc.product.Price
+import com.yuk.sheremisc.product.domain.Price
 
 data class TradeTerms(
     val price: Price,

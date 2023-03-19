@@ -1,6 +1,6 @@
 package com.yuk.sheremisc.order
 
-import com.yuk.sheremisc.product.ProductId
+import com.yuk.sheremisc.product.domain.ProductId
 import com.yuk.sheremisc.user.domain.UserId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
