@@ -1,5 +1,7 @@
 package com.yuk.sheremisc.account.domain
 
+import reactor.core.publisher.Mono
+
 interface AccountRepository {
-    fun new(account: WriteAccount): Account
+    fun new(account: Account): Mono<Account>
 }
