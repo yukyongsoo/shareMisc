@@ -1,4 +1,4 @@
-package com.yuk.sheremisc.product
+package com.yuk.sheremisc.product.domain
 
 import com.yuk.sheremisc.product.category.Category
 import com.yuk.sheremisc.user.domain.UserId

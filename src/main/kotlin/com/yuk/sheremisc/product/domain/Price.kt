@@ -1,4 +1,4 @@
-package com.yuk.sheremisc.product
+package com.yuk.sheremisc.product.domain
 
 data class Price(
     val value: Long
