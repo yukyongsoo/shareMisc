@@ -1,5 +1,7 @@
 package com.yuk.sheremisc.product.outbound
 
+import com.yuk.sheremisc.common.Page
+import com.yuk.sheremisc.common.PageResponse
 import com.yuk.sheremisc.product.category.Category
 import com.yuk.sheremisc.product.domain.Content
 import com.yuk.sheremisc.product.domain.Price
@@ -24,5 +26,22 @@ class DummyProductRepository : ProductRepository {
         )
 
         return Mono.just(product)
+    }
+
+    override fun getPage(page: Page): Mono<PageResponse<Product>> {
+        val page = PageResponse(
+            listOf(
+                Product(
+                    Category("123123123"),
+                    Title("title"),
+                    Content("content"),
+                    Price(1000),
+                    UserId(BigInteger.ONE)
+                )
+            ),
+            page
+        )
+
+        return Mono.just(page)
     }
 }
