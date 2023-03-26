@@ -10,9 +10,9 @@ data class Page(
 )
 
 class PageResponse<T>(
-    data: T,
+    data: Collection<T>,
     val page: Page
-) : CommonResponse<T>(data)
+) : CommonResponse<Collection<T>>(data)
 
 class ErrorResponse(
     code: String,
