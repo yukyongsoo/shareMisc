@@ -22,10 +22,28 @@ class Product(
 }
 
 @JvmInline
-value class ProductId(val value: BigInteger)
+value class ProductId(val value: BigInteger) {
+    init {
+        if (value == BigInteger.ZERO) {
+            throw IllegalArgumentException()
+        }
+    }
+}
 
 @JvmInline
-value class Title(val value: String)
+value class Title(val value: String) {
+    init {
+        if (value.isBlank()) {
+            throw IllegalArgumentException()
+        }
+    }
+}
 
 @JvmInline
-value class Content(val value: String)
+value class Content(val value: String) {
+    init {
+        if (value.isBlank()) {
+            throw IllegalArgumentException()
+        }
+    }
+}

@@ -44,4 +44,16 @@ class DummyProductRepository : ProductRepository {
 
         return Mono.just(page)
     }
+
+    override fun new(product: Product): Mono<Product> {
+        val product = Product(
+            Category("123123123"),
+            Title("title"),
+            Content("content"),
+            Price(1000),
+            UserId(BigInteger.ONE)
+        )
+
+        return Mono.just(product)
+    }
 }
