@@ -2,7 +2,7 @@ package com.yuk.sheremisc.product
 
 import com.yuk.sheremisc.common.Page
 import com.yuk.sheremisc.common.PageResponse
-import com.yuk.sheremisc.product.category.Category
+import com.yuk.sheremisc.product.category.domain.CategoryId
 import com.yuk.sheremisc.product.domain.Content
 import com.yuk.sheremisc.product.domain.Price
 import com.yuk.sheremisc.product.domain.Product
@@ -25,9 +25,9 @@ class ProductService(
         return productRepository.getPage(page)
     }
 
-    fun new(category: Category, title: Title, content: Content, price: Price, sellerUserId: UserId) {
+    fun new(categoryId: CategoryId, title: Title, content: Content, price: Price, sellerUserId: UserId) {
         val product = Product(
-            category,
+            categoryId,
             title,
             content,
             price,

@@ -1,6 +1,6 @@
 package com.yuk.sheremisc.product.domain
 
-import com.yuk.sheremisc.product.category.Category
+import com.yuk.sheremisc.product.category.domain.CategoryId
 import com.yuk.sheremisc.user.domain.UserId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
@@ -8,7 +8,7 @@ import java.math.BigInteger
 
 @Document
 class Product(
-    val category: Category,
+    val category: CategoryId,
     val title: Title,
     val content: Content,
     val price: Price,

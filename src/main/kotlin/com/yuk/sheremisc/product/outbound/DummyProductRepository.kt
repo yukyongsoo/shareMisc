@@ -2,7 +2,7 @@ package com.yuk.sheremisc.product.outbound
 
 import com.yuk.sheremisc.common.Page
 import com.yuk.sheremisc.common.PageResponse
-import com.yuk.sheremisc.product.category.Category
+import com.yuk.sheremisc.product.category.domain.CategoryId
 import com.yuk.sheremisc.product.domain.Content
 import com.yuk.sheremisc.product.domain.Price
 import com.yuk.sheremisc.product.domain.Product
@@ -18,7 +18,7 @@ import java.math.BigInteger
 class DummyProductRepository : ProductRepository {
     override fun find(id: ProductId): Mono<Product> {
         val product = Product(
-            Category("123123123"),
+            CategoryId("123123123"),
             Title("title"),
             Content("content"),
             Price(1000),
@@ -29,10 +29,10 @@ class DummyProductRepository : ProductRepository {
     }
 
     override fun getPage(page: Page): Mono<PageResponse<Product>> {
-        val page = PageResponse(
+        val response = PageResponse(
             listOf(
                 Product(
-                    Category("123123123"),
+                    CategoryId("123123123"),
                     Title("title"),
                     Content("content"),
                     Price(1000),
@@ -42,18 +42,18 @@ class DummyProductRepository : ProductRepository {
             page
         )
 
-        return Mono.just(page)
+        return Mono.just(response)
     }
 
     override fun new(product: Product): Mono<Product> {
-        val product = Product(
-            Category("123123123"),
+        val createdProduct = Product(
+            CategoryId("123123123"),
             Title("title"),
             Content("content"),
             Price(1000),
             UserId(BigInteger.ONE)
         )
 
-        return Mono.just(product)
+        return Mono.just(createdProduct)
     }
 }
